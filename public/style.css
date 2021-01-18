@@ -1,0 +1,136 @@
+html {
+    width: 60%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: #FFFFFF;
+}
+body {
+    height: 100%;
+    min-height: 100%;
+    line-height: 1.75;
+    background-color: #FFFFFF;
+}
+a:link:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+    cursor: pointer;
+    cursor: hand;
+}
+input[type=submit], button {
+    cursor: pointer;
+    cursor: hand;
+}
+@media(max-width: 900px) {
+    html {
+        font-size: 14px !important;
+        width: 80% !important;
+    }
+}
+@media(max-width: 480px) {
+    html {
+        font-size: 12px !important;
+        width: 90% !important;
+    }
+}
+@media(max-width: 320px) {
+    html {
+        font-size: 12px !important;
+        width: 100% !important;
+    }
+}
+ th, tr, td{
+	border: solid black;
+
+    height: 50px;
+
+}
+
+th{
+    text-align: center;
+}
+table[id=log-table]{
+    margin-right: auto;
+
+    margin-left: auto;
+    display: block;
+
+    max-height: 305px;
+    overflow-y:auto;
+    overflow-x:auto;
+}
+table[id=view-table]{
+    display: block;
+
+    max-height: 555px;
+    max-width: 750px;
+    overflow-y:auto;
+    overflow-x:auto;
+    white-space: nowrap;
+
+}
+.down{
+    width: 20%;
+    max-height: 50px;
+
+}
+.name{
+    width: 60%;
+    max-height: 50px;
+
+}
+.pros{
+    width: 20%;
+    max-height: 50px;
+
+}
+.prop{
+    width: 10%;
+    max-height: 50px;
+
+}
+.prpNm{
+    width: 25%;
+    max-height: 50px;
+
+}
+.val{
+    width: 50%;
+    max-height: 50px;
+
+}
+.param{
+    width: 15%;
+    max-height: 50px;
+
+}
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 750px;
+    height: 450px;
+    font-size: 30px;
+}
+input[type=text]
+{
+    width: 500px;
+    font-size: 15px;
+}
+input[type=number]
+{
+    width: 100px;
+    font-size: 15px;
+}
+h5{
+    font-size: 30px;
+}
+label{
+    font-size: 25px;
+}
+h3{
+    font-size: 40px;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vcard-Viewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Site to display and edit vcard files">
+    <meta name="keywords" content="Vcards">
+    <meta name="author" content="Tanvir Bhamber">
+    <!-- Load jquery, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <!-- Custom CSS End -->
+</head>
+<body>
+
+
+
+    <div id="header">
+        <h3 id="web-title"><u><b>Vcard file Viewer</b></u></h3>
+        </div>
+
+    <div id="file-log-pan">
+        <h5 id="panel-name"><u>File Log Panel</u></h5>
+        <div id="log-panel" class="table-wrapper">
+
+            <table id="log-table">
+                <colgroup>
+                    <col class="down"/>
+                    <col class ="name"/>
+                    <col class ="pros"/>
+                </colgroup>
+                <tr>
+                    <th id ="DownCard">Vcard(Click to download)</th>
+                    <th>Name</th>
+                    <th>Additional Properties</th>
+                </tr>
+                <tbody id="log-body">
+
+                </tbody>
+          </table>
+      </div>
+
+<br></br>
+<h5 id="Upload-label"><u>Upload file below</u></h5>
+<form ref='uploadForm'
+    id='uploadForm'
+  action='/upload'
+  method='post'
+  encType="multipart/form-data">
+  <div class="form-group">
+    <input type="file" name="uploadFile" class="btn btn-secondary">
+    <input type='submit' value='Upload' class="btn btn-secondary">
+  </div>
+   </form>
+
+
+<h5 id="panel-name"><u>Vcard file picker</u></h5>
+<select id="vCard-files" class="vcards">
+</select>
+
+<div>
+    <div id="card-view-pan">
+
+        <div id="log-panel" class="table-wrapper">
+            <table id="view-table">
+                <colgroup>
+                    <col class="prop"/>
+                    <col class ="prpNm"/>
+                    <col class ="val"/>
+                    <col class ="param"/>
+                </colgroup>
+                <tr>
+                    <th>Property #</th>
+                    <th>Name</th>
+                    <th>Values</th>
+                    <th>Parameters</th>
+                </tr>
+                <tbody id="view-body">
+                </tbody>
+          </table>
+      </div>
+
+  </div>
+</div>
+<br></br>
+<h5 id="AddPRop title"><u>Add new property</u></h5>
+<div>
+    <div id="addProp">
+        <form
+            id ='AddingProp'
+            action='/newProp'
+            method='post'>
+            <label for='newPropLabel'>Enter new Property here:</label>
+            <input type ='text' name='pName' id="propertyName" placeholder="Property Name here" required>
+            <input type ='text' name='pVal' id="propertyValue" placeholder="Property Value here" required>
+            <input id='submitProp' type ='submit' value ='Add'>
+        </form>
+
+
+    </div>
+
+</div>
+<br></br>
+<h5 id="EditProp title"><u>Edit Existing Property</u></h5>
+<div>
+    <div id="editProp">
+        <form
+            id ='editProperty'
+            action='/propChange'
+            method='post'>
+            <label for='editPropLabel'>Enter Row to change(First row = 0), and what to replace the Value with</label>
+            <input type ='number' name='rowNumber' id="propNumVal" placeholder="0" required>
+            <input type ='text' name='EditedVal' id="editVal" placeholder="new Property Value here" required>
+            <input id='submitEdit' type ='submit' value ='Edit'>
+        </form>
+
+
+    </div>
+
+</div>
+<br></br>
+
+<h5 id="CreateCard title"><u>Create new Card</u></h5>
+<div>
+    <div id="cardCreationDiv">
+        <form
+            id ='createCard'
+            action='/newCard'
+            method='post'>
+            <label for='newCardLabel'>Enter Vcard name and Fn name</label>
+            <input type ='text' name='CardName' id="cardNameVal" placeholder="Card name here" required>
+            <input type ='text' name='fnName' id="fnVal" placeholder="Fn value here" required>
+            <input id='submitCard' type ='submit' value ='Create'>
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+
+<br></br>
+<h5 id="ShowParams title"><u>Display Parameters for Selected Card</u></h5>
+<div>
+    <div id="showParam">
+        <form
+            id ='showParameters'
+            action='/displayParam'
+            method='post'>
+            <label for='ShowParamLabel'>Enter Row number to display parameters(First row = 0)</label>
+            <input type ='number' name='ParamRow' id="pramRowVal" placeholder="0" required>
+            <input id='submitParam' type ='submit' value ='Display Parameters'>
+        </form>
+
+
+    </div>
+
+</div>
+<br></br>
+
+<div id="ParamOutput">
+    <textarea readonly id="paramOutput" >This is where Parameters will be shown.</textarea>
+</div>
+<br></br>
+
+
+
+    <!-- Leave me at the bottom of body -->
+    <script src="/index.js"></script>
+
+</body>
+</html>

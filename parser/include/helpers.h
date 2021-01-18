@@ -1,0 +1,22 @@
+#include <ctype.h>
+void recursiveUnfolding(char buffer[2000],FILE **file);
+int GetDateTime(char *propertyValue,char *propertyName,Card* newCardObject,int bdayAnniv);
+int otherProperties(char* propertyValue,char *propertyName,Card* Vcard);
+void initializeVcard(Card *vCard);
+void findParam(char buffer[100],Property* otherProps);
+void groupParser(char buffer[1000],Property* otherProps);
+void propertyToStringTest();
+int splitDateTime(char dayBuff[100],DateTime* day);
+int validateBasics(FILE* vCardFile);
+void getDateTime (FILE *fp, DateTime* obj, int Bday);
+char* getFN(const Card* obj);
+void addingProp(Property* prop,FILE *fp);
+int parseVal(Property* tempProp,char* value);
+int validateStruct(const Card* obj);
+int validatePropName(char buffer[100],Property* currProp, const Card* obj);
+int validateDate(DateTime* day);
+int validateFn(Property* fn);
+int validatePropParam(Property* prop);
+int validateValues(Property* prop);
+void splitValName(char buffer[1000], DateTime* day);
+void splitPropVal(char buffer[1000],Property* prop);
